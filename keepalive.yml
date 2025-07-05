@@ -1,0 +1,13 @@
+name: Keep Website Awake
+
+on:
+  schedule:
+    # Runs every 5 minutes
+    - cron: '*/5 * * * *'
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl your website
+        run: curl --silent --show-error --fail https://https://expense-tracking-application.onrender.com/ || echo "Website not responding"
